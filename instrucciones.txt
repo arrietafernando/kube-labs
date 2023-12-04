@@ -30,8 +30,6 @@ https://minikube.sigs.k8s.io/docs/start/
 https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#install-with-homebrew-on-macos
 En ambos usar la opcion Homebrew.
 
-
-
 Una vez instalado en todos los casos ver si se instalo bien el cliente:
 kubectl version --client --output=yaml
 

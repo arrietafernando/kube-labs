@@ -1,13 +1,16 @@
 1. Crear un PersistentVolume:
 kubectl create -f mongodb-pv-hostpath.yaml
+
 2. Observar si se creo:
 kubectl get pv
 Tambien se puede ver en el dashboard. Observar que no pertenece a un namespace, es global
 Las tareas anteriores tipicamente las hace un admin del cluster.
 Lo siguiente lo realizaria un developer. Al realizar un Claim, el anterior volumen
 no puede ser usado por otro developer hasta que este suelte el claim.
+
 3. Crear un PersistenceVolumeClaim
 kubectl create -f mongodb-pvc.yaml
+
 4. Listar los pv y pvc:
 kubectl get pv
 kubectl get pvc
@@ -21,12 +24,14 @@ mongodb-pvc2   Pending                                                         1
 
 5. Crear un pod que use tal pvc:
 kubectl create -f mongodb-pod-pvc.yaml
+
 6. Comprobar si los datos del ejercicio anterior estan aun:
 kubectl exec -it mongodb -- mongosh
 show dbs
 use baseprueba
 show collections;
 db.coleccion.find();
+
 7. Borrar el pod, pvc y volumen:
 kubectl delete pod mongodb
 kubectl delete pvc mongodb-pvc

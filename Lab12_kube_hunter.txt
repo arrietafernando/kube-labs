@@ -83,7 +83,3 @@ https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-accou
 
 
 Con respecto al kube-hunter, para tests activos agregarle al comando un --active
-
-
-
-

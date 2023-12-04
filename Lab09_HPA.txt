@@ -1,9 +1,12 @@
 1. Ver si se ven metricas: 
 kubectl top nodes
 Va a dar un error si no es asi.
+
 2. Desplegar el metrics-server:
 minikube addons enable metrics-server
+
 3. Ver en el dashboard o la linea de comandos si se levanto un deploy en el ns kube-system
+
 4. Despues de pocos minutos deberian verse las metricas. Tambien se veran en el dashboard:
 kubectl top nodes
 
@@ -30,9 +33,3 @@ kubectl run -it --rm --restart=Never loadgenerator --image=busybox -- sh -c "whi
 A los pocos minutos se veran 3 o 4 pods.
 
 10. Parar con ctrl+c ese generador, y a los pocos minutos se volvera a 1 pod.
-
-
-
-
-
-

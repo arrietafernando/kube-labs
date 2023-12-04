@@ -1,11 +1,13 @@
 1. Levantar minikube 
 minikube start
+
 2. Ver informacion del kubectl, del cluster:
 kubectl version --output=yaml
 kubectl config view
 kubectl cluster-info
 Verla de forma grafica, en otra ventana terminal o tab dejar levantado el dashboard (se levantara en un browser):
 minikube dashboard
+
 3. En otra ventana o tab podemos conectarnos al server (a la virtual que contiene tanto al master como a los nodos):
 minikube ssh
 Ver qué hay adentro:
@@ -15,33 +17,43 @@ ps aux
 docker version
 docker container ls
 Ver los contenedores pausados.
+
 4. En la ventana original ver los nodos (uno solo en el caso de minikube)
 kubectl get nodes
+
 5. Ver en detalle el nodo:
 kubectl describe node minikube
+
 6. Ver si hay algo levantado en el namespace default:
 kubectl get pods
 kubectl get replicasets
 kubectl get services
 kubectl get deployments
+
 7. Crear un deployment a partir de un archivo descriptivo:
 kubectl apply -f deploy.yml
+
 8. Ver los pods que se crearon:
 kubectl get pods
 kubectl get pods -o wide
+
 9. Ver los replicasets:
 kubectl get rs
 kubectl get rs -o json
+
 10. Ver el deployment creado:
 kubectl get deployments
 kubectl get deployments -o json
 kubectl describe deploy hello-deploy
+
 11.Ver más detalles del pod creado
 Usando el nombre del pod generado:
 kubectl get pods -o json hello-deploy-ccdbcf554-nfbvr
 kubectl describe pods hello-deploy-ccdbcf554-nfbvr
+
 12. En la terminal conectada al Minikube SSH ver los contenedores que se crearon:
 docker container ls
+
 13. En la terminal original ver dentro del pod: 
 kubectl exec hello-deploy-ccdbcf554-nfbvr -- ps aux
 kubectl exec -it hello-deploy-ccdbcf554-nfbvr -- sh
@@ -60,16 +72,19 @@ Reemplazar esa IP por la que aparece en los comandos descriptivos de más arriba
 
 15. Levantar un servicio para exponer el deployment,usando el archivo descriptivo:
 kubectl app -f svc.yml
+
 16. Ver los servicios levantados y el detalle:
 kubectl get services
 kubectl get services -o json hello-svc
 En el comando anterior buscar el nodePort
+
 17. En la PC cliente ir a un browser e ir a:
 http://192.168.99.100:30001/
 Reemplazar por la IP asignada al minikube ("minikube ip") y por el puerto obtenido en el anterior punto.
 En Windows, incluso con WSL2 esto no va a funcionar, ejecutar:
 minikube service hello-svc
 En Powershell levantara un browser, en WSL2 va a mostrar la URL en la terminal, copiarla y pegarla en el browser.
+
 18. En la terminal conectada al Minikube ejecutar:
 curl 10.97.50.72:8080
 Reemplazar por la IP del tipo ClusterIp obtenido con el comando "kubectl get services". Tambien:
@@ -86,12 +101,3 @@ Si no se quiere continuar con mas laboratorios:
 minikube stop
 Si se quiere borrar el trabajo hecho:
 minikube delete
-
-
-
-
-
-
-
-
-
