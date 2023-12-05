@@ -5,41 +5,40 @@ minikube start
 
 2. Opcional: En otra terminal o Tab dejar levantado el dashboard (se levantara en un browser):
 minikube dashboard
+
 3. En otra terminal o Tab podemos conectarnos al server (a la virtual que contiene tanto al master como a un
 nodo worker):
 minikube ssh
+
 4. Crear un deployment para la base redis:
 kubectl apply -f deploy-redis.yml
+
 5. Ver los pods que se crearon:
 kubectl get pods -o wide
+
 6. Levantar un servicio para exponer ese deployment,usando el archivo descriptivo:
 kubectl apply -f svc-redis.yml
+
 7. Ver los servicios levantados:
 kubectl get services
 Observar que solo se expone internamente al cluster.
 
 8. Crear un deployment para la app python:
 kubectl apply -f deploy-python.yml
+
 9. Ver los pods que se crearon:
 kubectl get pods -o wide
+
 10. Levantar un servicio para exponer ese deployment,usando el archivo descriptivo, ya que se usa el tipo LoadBalancer, levantar un tunel en otro tab:
 minikube tunnel
 Luego crear el Service:
 kubectl apply -f svc-python.yml
+
 11. Ver los servicios levantados:
 kubectl get services
+
 12. En la PC cliente ir a un browser y poner la IP que aparece como externa en get "svc":
 http://10.108.244.34
 Si no anduvo probar:
 minikube service python-svc
 Se vera en el Browser la app, o sino ver la URL y levantarla en el browser.
-
-
-
-
-
-
-
-
-
-

@@ -44,10 +44,12 @@ minikube service ingress-nginx-controller -n  ingress-nginx
 
 Elegir la opcion http (la https tambien funcionara, en ese caso agregar https a la url) y pegar en el browser:
 
-http://127.0.0.1:40891
+https://127.0.0.1:40891
+(usar el puerto que se expone en la terminal al correr el comando anterior)
 
 Se vera el servicio llamado web. Si en el browser ponemos:
 
-http://127.0.0.1:40891/vs
+https://127.0.0.1:40891/v2
+(usar el puerto que se expone en la terminal al correr el comando anterior)
 
 Se vera el servicio llamado web2.
